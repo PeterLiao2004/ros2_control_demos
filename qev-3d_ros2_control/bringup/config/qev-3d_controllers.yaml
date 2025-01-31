@@ -1,0 +1,33 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    bicycle_steering_controller:
+      type: bicycle_steering_controller/BicycleSteeringController
+
+joint_state_broadcaster:no
+  ros__parameters:
+    type: joint_state_broadcaster/JointStateBroadcaster
+    #extra_joints: [front_virtual_wheel_joint]
+
+bicycle_steering_controller:
+  ros__parameters:
+    type: bicycle_steering_controller/BicycleSteeringController
+    wheelbase: 1.580
+    front_wheel_radius: 0.2032
+    rear_wheel_radius: 0.2032
+    front_steering: true
+    reference_timeout: 2.0
+    rear_wheels_names: [rear_virtual_wheel_joint]
+    front_wheels_names: [virtual_steering_hinge_joint]
+    open_loop: false
+    velocity_rolling_window_size: 10
+    position_feedback: false
+    #use_stamped_vel: true
+    rear_wheels_state_names: [rear_virtual_wheel_joint]
+    front_wheels_state_names: [virtual_steering_hinge_joint]
+    #wheel_track: 1.4
+    #in_chained_mode: true
